@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: replicaapp
+spec:
+  selector:
+    matchLabels:
+      app: replicaapp
+  replicas: 2
+  template:
+    metadata: 
+      labels: 
+        app: replicaapp
+    spec:
+      containers:
+      - name: replicaapp
+        image: 90theemcee/mypython:1.0.0
+        ports:
+        - containerPort: 8080
