@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: firstpod
+
+
+spec:
+  selector:
+    matchLabels:
+      app: firstpod
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: firstpod
+    spec:
+      containers:
+        - name: firstpod
+          image: 90theemcee/mypython:1.0.0
+          ports:
+          - containerPort: 8081
